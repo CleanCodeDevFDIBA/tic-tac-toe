@@ -1,4 +1,4 @@
-package com.cleanCodeProject.tictactoe;
+package com.fdibaProject.tictactoe;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
