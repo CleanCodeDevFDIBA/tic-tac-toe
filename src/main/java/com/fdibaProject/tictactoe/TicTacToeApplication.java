@@ -1,4 +1,4 @@
-package com.cleanCodeProject.tictactoe;
+package com.fdibaProject.tictactoe;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
