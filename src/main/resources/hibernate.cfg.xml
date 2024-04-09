@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://cornelius.db.elephantsql.com/hkzkdjzx</property>
+        <property name="connection.username">hkzkdjzx</property>
+        <property name="connection.password">HkPNxUm8kczikO-5zCjNSsx7QHQHA__F</property>
+
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
+
+        <property name="hibernate.type.descriptor.java_type_mappings">
+            org.hibernate.type.descriptor.sql.GenericJdbcTypeDescriptor, jackson  </property>
+
+        <property name="hbm2ddl.auto">update</property>
+        <mapping class="com.fdibaProject.tictactoe.models.Game"/>
+        <mapping class="com.fdibaProject.tictactoe.models.Player"/>
+    </session-factory>
+
+</hibernate-configuration>
