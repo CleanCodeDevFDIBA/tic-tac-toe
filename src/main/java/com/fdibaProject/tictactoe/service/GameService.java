@@ -3,14 +3,10 @@ package com.fdibaProject.tictactoe.service;
 import com.fdibaProject.tictactoe.exceptions.InvalidGameException;
 import com.fdibaProject.tictactoe.exceptions.InvalidParamException;
 import com.fdibaProject.tictactoe.exceptions.NotFoundException;
-import com.fdibaProject.tictactoe.models.Game;
-import com.fdibaProject.tictactoe.models.GameStatus;
-import com.fdibaProject.tictactoe.models.Player;
+import com.fdibaProject.tictactoe.models.*;
 import com.fdibaProject.tictactoe.storage.GameStorage;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -54,5 +50,63 @@ public class GameService {
         game.setStatus(GameStatus.IN_PROGRESS);
         GameStorage.getInstance().setGame(game);
         return game;
+    }
+
+    public Game gamePlay(GamePlay gamePlay) throws NotFoundException, InvalidGameException {
+        if (!GameStorage.getInstance().getGames().containsKey(gamePlay.getGameId())){
+            String message = String.format("Game with id %s cannot be found!", gamePlay.getGameId());
+            throw new NotFoundException(message);
+        }
+
+        Game game = GameStorage.getInstance().getGames().get(gamePlay.getGameId());
+        if (game.getStatus().equals(GameStatus.FINISHED)){
+            throw new InvalidGameException("Game is already finished!");
+        }
+
+        int [][] board = game.getBoard();
+        board[gamePlay.getCoordinateX()][gamePlay.getCoordinateY()] = gamePlay.getType().getValue();
+
+        Boolean hasWonX = checkWinCondition(board, Signs.X);
+        Boolean hasWonO = checkWinCondition(board, Signs.O);
+        if (hasWonX || hasWonO){
+            game.setStatus(GameStatus.FINISHED);
+            if (hasWonX) {
+                game.setWinner(Signs.X);
+            }
+            else {
+                game.setWinner(Signs.O);
+            }
+        }
+
+        GameStorage.getInstance().setGame(game);
+        return game;
+    }
+
+    public boolean checkWinCondition(int [][] board, Signs sign) {
+        int[] boardAsArray = new int[9];
+        int counterIndex = 0;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                boardAsArray[counterIndex] = board[i][j];
+                counterIndex++;
+            }
+        }
+
+        int[][] winCombos = {
+                {0, 1, 2}, {3, 4, 5}, {6, 7, 8}, {0, 4, 8}, {2, 4, 6}, {0, 3, 6}, {1, 4, 7}, {2, 5, 8}
+        };
+
+        for (int i = 0; i < winCombos.length; i++) {
+            int counterOfHits = 0;
+            for (int j = 0; j < winCombos[i].length; j++) {
+                if (boardAsArray[j] == sign.getValue()) {
+                    counterOfHits++;
+                }
+                if (counterOfHits == 3) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
