@@ -1,0 +1,13 @@
+h1{
+    color: #703a2e;
+    text-align: center;
+    margin-top: 3em;
+    margin-bottom: 2em;
+    font-size: 40px;
+}
+.frame{
+    text-align: center;
+}
+.frame p{
+    margin-bottom: 3em;
+}
