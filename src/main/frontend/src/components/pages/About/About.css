@@ -1,13 +1,39 @@
 h1{
     color: #703a2e;
     text-align: center;
-    margin-top: 3em;
+    margin-top: 2em;
     margin-bottom: 2em;
     font-size: 40px;
 }
 .frame{
-    text-align: center;
+    margin: auto;
+    border-style: double;
+    border-color: #703a2e;
+    width: 650px;
+    padding-top: 0.5em;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .frame p{
-    margin-bottom: 3em;
+    margin-bottom: 2em;
+    font-size: 20px;
+    color: #693328;
+}
+.firstButtonInAbout{
+    margin-top: 50px;
+    text-align: center;
+}
+.firstButtonInAbout a{
+    padding: 5px 25px 10px 25px;
+    text-decoration: none;
+    border-radius: 20px;
+    background: #F3A98E;
+    border: 1px solid #703a2e;
+    font-size: 24px;
+    font-weight: bold;
+    color: #703a2e;
+}
+.firstButtonInAbout a:hover {
+    background-color: #804336; 
+    color: #f5b098;
 }
