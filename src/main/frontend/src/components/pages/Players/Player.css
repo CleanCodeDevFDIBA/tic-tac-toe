@@ -1,0 +1,83 @@
+
+.container {
+    text-align: center;
+}
+
+.h1 {
+    margin-top: 80px;
+    margin-bottom: 50px;
+    color: #703a2e;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-names label{
+    font-size: 30px;
+    color: #703a2e;
+}
+
+.player-names {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    color: #703a2e;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.player-names input {
+    margin-left: 10px;
+    height: 30px;
+    color: #703a2e;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.buttons {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3em;
+}
+
+.startGameButton a {
+    padding: 10px 25px 15px 25px;
+    text-decoration: none;
+    border-radius: 20px;
+    background: #F3A98E;
+    border: 1px solid #703a2e;
+    font-size: 24px;
+    font-weight: bold;
+    color: #703a2e;
+}
+
+.startGameButton a:hover {
+    background-color: #804336;
+    color: #f5b098;
+}
+
+.homeButton a{
+    padding: 10px 25px 15px 25px;
+    text-decoration: none;
+    border-radius: 20px;
+    background: #804336;
+    font-size: 24px;
+    font-weight: bold;
+    color: #f5b098;
+}
+
+.homeButton a:hover {
+    background-color: #F3A98E;
+    color: #703a2e;
+    border: 1px solid #703a2e;
+}
+
