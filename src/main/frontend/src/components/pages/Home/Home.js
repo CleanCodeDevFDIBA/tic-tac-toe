@@ -13,7 +13,7 @@ function Home(){
                     <a href="/About">How to play Tic-Tac-Toe?</a>
                 </div>
                 <div className="secondButton">
-                    <a href="/GameOnePc">Start a game</a>
+                    <a href="/Players">Start a game</a>
                 </div>
             </div>
         </div>

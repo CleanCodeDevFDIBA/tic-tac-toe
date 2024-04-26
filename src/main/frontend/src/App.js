@@ -9,6 +9,7 @@ import {
 import Home from "./components/pages/Home/Home";
 import About from "./components/pages/About/About";
 import GameOnePc from "./components/pages/GameOnePC/GameOnePC";
+import Player from "./components/pages/Players/Player";
 //import SignUp from "./pages/signup";
 //import Contact from "./pages/contact";
 
@@ -18,6 +19,7 @@ function App() {
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route path="/About" element={<About />} />
+                <Route path="/Players" element={<Player />} />
                 <Route path="/GameOnePC" element={<GameOnePc />} />
             </Routes>
         </Router>
