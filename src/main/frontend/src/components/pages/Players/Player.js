@@ -28,11 +28,15 @@ import './Player.css'
 
                 <div className="buttons">
                     <div className="startGameButton">
-                        <a href="/GameOnePC">Start the game</a>
+                        <a href="/GameOnePC">
+                            <button>Start a game</button>
+                        </a>
                     </div>
 
                     <div className="homeButton">
-                        <a href="/">Home</a>
+                        <a href="/">
+                            <button>Home</button>
+                        </a>
                     </div>
                 </div>
 

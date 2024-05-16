@@ -10,10 +10,14 @@ function Home(){
             <img src= {logo}  alt="Tic-Tac-Toe"/>
             <div className="twoButtons">
                 <div className="firstButton">
-                    <a href="/About">How to play Tic-Tac-Toe?</a>
+                    <a href="/About">
+                        <button>How to play Tic-Tac-Toe?</button>
+                    </a>
                 </div>
                 <div className="secondButton">
-                    <a href="/Players">Start a game</a>
+                    <a href="/Players">
+                        <button>Start a game</button>
+                    </a>
                 </div>
             </div>
         </div>

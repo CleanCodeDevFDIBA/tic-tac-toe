@@ -65,9 +65,9 @@ const [game, setGame] = useState(null);
                     </div>
                   ))}
                 </div>
-              </div>
-              <button className='reset' onClick={() => window.location.reload()}>Reset</button>
 
+              </div>
+              <button className='reset' onClick={() => window.location.reload()}>Play again!</button>
             </div>
           );
 }

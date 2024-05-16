@@ -49,7 +49,7 @@
     gap: 3em;
 }
 
-.startGameButton a {
+.startGameButton a button{
     padding: 10px 25px 15px 25px;
     text-decoration: none;
     border-radius: 20px;
@@ -60,12 +60,12 @@
     color: #703a2e;
 }
 
-.startGameButton a:hover {
+.startGameButton a button:hover {
     background-color: #804336;
     color: #f5b098;
 }
 
-.homeButton a{
+.homeButton a button{
     padding: 10px 25px 15px 25px;
     text-decoration: none;
     border-radius: 20px;
@@ -75,7 +75,7 @@
     color: #f5b098;
 }
 
-.homeButton a:hover {
+.homeButton a button:hover {
     background-color: #F3A98E;
     color: #703a2e;
     border: 1px solid #703a2e;
