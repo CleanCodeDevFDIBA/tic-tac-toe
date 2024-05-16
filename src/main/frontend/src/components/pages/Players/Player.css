@@ -81,3 +81,10 @@
     border: 1px solid #703a2e;
 }
 
+.error-message {
+  color: #703a2e;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
