@@ -43,17 +43,7 @@ public class GameController {
         return new ResponseEntity<>(game, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}/move")
-    public ResponseEntity<Game> makeMove(@PathVariable Long id, @RequestBody MoveRequest moveRequest) {
-        try {
-            Game updatedGame = gameService.updateGame(id, moveRequest.getIndex(), moveRequest.getPlayer());
-            return new ResponseEntity<>(updatedGame, HttpStatus.OK);
-        } catch (ResourceNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch (InvalidMoveException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
+
 
 
     // Delete a game
