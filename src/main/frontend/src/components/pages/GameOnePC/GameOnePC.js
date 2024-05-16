@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './GameOnePC.css';
 import axios from 'axios';
-import xImage from './cross-image.jpg';
-import oImage from './circle-image.png';
+import xImage from './X-img.png';
+import oImage from './O-img.png';
 
 const API_BASE_URL = 'http://localhost:8080/api/games';
 
