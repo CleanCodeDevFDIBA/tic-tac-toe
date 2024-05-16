@@ -2,8 +2,8 @@
     text-align: center;
 }
 .title{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 10px;
     color: #703a2e;
     font-size: 35px;
     display: flex;
@@ -48,8 +48,9 @@
 }
 .board{
 
-    height: 510px;
-    width: 510px;
+    height: 490px;
+    width: 490px;
+    justify-content: center;
 
     display: flex;
     margin: 0 auto;
@@ -65,7 +66,7 @@
 .message{
     margin: 0 auto;
     margin-bottom: 15px;
-    width: 500px;
+    width: 490px;
     height: 40px;
     border-radius: 10px;
     background: #804b3e;
