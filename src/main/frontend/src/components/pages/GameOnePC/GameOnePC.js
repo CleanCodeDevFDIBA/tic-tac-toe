@@ -7,12 +7,12 @@ import oImage from './O-img.png';
 const API_BASE_URL = 'http://localhost:8080/api/games';
 
 function GameOnePc() {
+
   const [game, setGame] = useState(null);
   const [board, setBoard] = useState(Array(9).fill(null));
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [gameOver, setGameOver] = useState(false);
   const [winner, setWinner] = useState(null);
-
 
 
   const checkWinner = (board) => {
@@ -63,43 +63,46 @@ function GameOnePc() {
   };
 
   return (
-              <div className='container'>
-                <h1 className='title'>Tic-Tac-Toe Game</h1>
-                <div className='board'>
-                  <div className='row1'>
-                    {board.slice(0, 3).map((value, index) => (
-                      <div key={index} className='boxes' onClick={() => handleSquareClick(index)}>
-                       {value === 'X' && <img src={xImage} alt='X' />}
-                        {value === 'O' && <img src={oImage} alt='O' />}
-                      </div>
-                    ))}
-                  </div>
-                  <div className='row2'>
-                    {board.slice(3, 6).map((value, index) => (
-                      <div key={index + 3} className='boxes' onClick={() => handleSquareClick(index + 3)}>
-                       {value === 'X' && <img src={xImage} alt='X' />}
-                        {value === 'O' && <img src={oImage} alt='O' />}
-                      </div>
-                    ))}
-                  </div>
-                  <div className='row3'>
-                    {board.slice(6, 9).map((value, index) => (
-                      <div key={index + 6} className='boxes' onClick={() => handleSquareClick(index + 6)}>
-                       {value === 'X' && <img src={xImage} alt='X' />}
-                       {value === 'O' && <img src={oImage} alt='O' />}
-                      </div>
-                    ))}
-                  </div>
+      <div className='container'>
+        <h1 className='title'>Tic-Tac-Toe Game</h1>
+        <div className="turn-indicator">
+          <p>Current Turn: {currentPlayer}</p>
+        </div>
+        <div className='board'>
+        <div className='row1'>
+            {board.slice(0, 3).map((value, index) => (
+                <div key={index} className='boxes' onClick={() => handleSquareClick(index)}>
+                  {value === 'X' && <img src={xImage} alt='X'/>}
+                  {value === 'O' && <img src={oImage} alt='O'/>}
                 </div>
-                {gameOver && (
-                        <div className='message'>
-                          {winner === 'Tie' ? "It's a tie!" : `Winner: ${winner}`}
-                        </div>
-                      )}
-                <button className='reset' onClick={() => window.location.reload()}>Reset</button>
+            ))}
+          </div>
+          <div className='row2'>
+            {board.slice(3, 6).map((value, index) => (
+                <div key={index + 3} className='boxes' onClick={() => handleSquareClick(index + 3)}>
+                  {value === 'X' && <img src={xImage} alt='X'/>}
+                  {value === 'O' && <img src={oImage} alt='O'/>}
+                </div>
+            ))}
+          </div>
+          <div className='row3'>
+            {board.slice(6, 9).map((value, index) => (
+                <div key={index + 6} className='boxes' onClick={() => handleSquareClick(index + 6)}>
+                  {value === 'X' && <img src={xImage} alt='X'/>}
+                  {value === 'O' && <img src={oImage} alt='O'/>}
+                </div>
+            ))}
+          </div>
+        </div>
+        {gameOver && (
+            <div className='message'>
+              {winner === 'Tie' ? "It's a tie!" : `Winner: ${winner}`}
+            </div>
+        )}
+        <button className='new-game' onClick={() => window.location.reload()}>Play again!</button>
 
-              </div>
-            );
+      </div>
+  );
 }
 
 export default GameOnePc;

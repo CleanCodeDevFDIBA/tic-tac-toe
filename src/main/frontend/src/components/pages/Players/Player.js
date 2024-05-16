@@ -15,6 +15,7 @@ function Player() {
             e.preventDefault();
         } else {
             setError('');
+
         }
     };
 
