@@ -70,7 +70,6 @@ function GameOnePc() {
   };
 
   return (
-
       <div className='container'>
         <h1 className='title'>Tic-Tac-Toe Game</h1>
         <div className="turn-indicator">
@@ -79,7 +78,8 @@ function GameOnePc() {
         <div className='board'>
         <div className='row1'>
             {board.slice(0, 3).map((value, index) => (
-                <div key={index} className='boxes' onClick={() => handleSquareClick(index)}>
+                <div key={index} className={`boxes ${winningLine.includes(index) ? 'glow' : ''}`}
+                onClick={() => handleSquareClick(index)}>
                   {value === 'X' && <img src={xImage} alt='X'/>}
                   {value === 'O' && <img src={oImage} alt='O'/>}
                 </div>
@@ -87,7 +87,8 @@ function GameOnePc() {
           </div>
           <div className='row2'>
             {board.slice(3, 6).map((value, index) => (
-                <div key={index + 3} className='boxes' onClick={() => handleSquareClick(index + 3)}>
+                <div key={index + 3} className={`boxes ${winningLine.includes(index+3) ? 'glow' : ''}`}
+                onClick={() => handleSquareClick(index + 3)}>
                   {value === 'X' && <img src={xImage} alt='X'/>}
                   {value === 'O' && <img src={oImage} alt='O'/>}
                 </div>
@@ -95,7 +96,8 @@ function GameOnePc() {
           </div>
           <div className='row3'>
             {board.slice(6, 9).map((value, index) => (
-                <div key={index + 6} className='boxes' onClick={() => handleSquareClick(index + 6)}>
+                <div key={index + 6} className={`boxes ${winningLine.includes(index+6) ? 'glow' : ''}`}
+                onClick={() => handleSquareClick(index + 6)}>
                   {value === 'X' && <img src={xImage} alt='X'/>}
                   {value === 'O' && <img src={oImage} alt='O'/>}
                 </div>
@@ -104,7 +106,7 @@ function GameOnePc() {
         </div>
         {gameOver && (
             <div className='message'>
-              {winner === 'Tie' ? "It's a tie!" : `Winner: ${winner}`}
+              {winner === 'Tie' ? "It's a tie!" : `Winner: ${board[winningLine[0]]}`}
             </div>
         )}
         <button className='new-game' onClick={() => window.location.reload()}>Play again!</button>
