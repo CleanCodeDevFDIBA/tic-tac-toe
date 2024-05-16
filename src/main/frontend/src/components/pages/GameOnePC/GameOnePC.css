@@ -73,7 +73,7 @@
     font-size: 24px;
     color: #facfc5;
 }
-.message p{
+.message{
     margin-top: 0;
     position: relative;
     animation: myfirst 2s 2;
