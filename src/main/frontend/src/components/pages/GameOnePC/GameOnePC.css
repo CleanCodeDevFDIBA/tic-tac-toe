@@ -10,7 +10,14 @@
     justify-content: center;
     align-items: center;
 }
-.reset{
+
+.turn-indicator {
+    color: #703a2e;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.new-game{
     width: 180px;
     height: 50px;
     border: none;
@@ -22,17 +29,16 @@
     font-size: 26px;
     font-weight: bold;
     color: #703a2e;
-
-
 }
-.reset:hover {
-    background-color: #804336; /* Green */
+.new-game:hover {
+    background-color: #804336;
     color: #f5b098;
 }
 .boxes{
     display: flex;
-    height: 160px;
-    width: 160px;
+    justify-content: center;
+    height: 155px;
+    width: 155px;
     margin-left: 5px;
     margin-bottom: 5px;
     background: #F3A98E;
@@ -41,8 +47,10 @@
     cursor: pointer;
 }
 .board{
+
     height: 510px;
     width: 510px;
+
     display: flex;
     margin: 0 auto;
 
@@ -74,6 +82,26 @@
 @keyframes myfirst {
     0%   {left: 0px; top: 0px;}
     100%  {left: 100px; top: 0px;}
+}
+
+
+.board img {
+
+    height: 155px;
+    width: 155px;
+}
+
+.glow {
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #703a2e, 0 0 10px #703a2e, 0 0 15px #703a2e, 0 0 20px #703a2e;
+  }
+  to {
+    box-shadow: 0 0 10px #99505c, 0 0 20px #99505c, 0 0 30px #99505c, 0 0 40px #99505c;
+  }
 }
 
 
