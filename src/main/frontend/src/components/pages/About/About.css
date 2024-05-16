@@ -23,7 +23,7 @@ h1{
     margin-top: 50px;
     text-align: center;
 }
-.firstButtonInAbout a{
+.firstButtonInAbout a button{
     padding: 5px 25px 10px 25px;
     text-decoration: none;
     border-radius: 20px;
@@ -33,7 +33,7 @@ h1{
     font-weight: bold;
     color: #703a2e;
 }
-.firstButtonInAbout a:hover {
+.firstButtonInAbout a button:hover {
     background-color: #804336; 
     color: #f5b098;
 }

@@ -14,9 +14,13 @@ function About(){
                     the game ends in a draw.</p>
             </div>
             <div className="firstButtonInAbout">
-                <a href="/">Home</a>
+                <a href="/">
+                    <button>Home</button>
+                </a>
+
             </div>
         </div>
     )
 }
-export  default About;
+
+export default About;
