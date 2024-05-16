@@ -62,3 +62,17 @@
     width: 155px;
 }
 
+.glow {
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #703a2e, 0 0 10px #703a2e, 0 0 15px #703a2e, 0 0 20px #703a2e;
+  }
+  to {
+    box-shadow: 0 0 10px #99505c, 0 0 20px #99505c, 0 0 30px #99505c, 0 0 40px #99505c;
+  }
+}
+
+

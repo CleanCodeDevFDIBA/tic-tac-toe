@@ -15,6 +15,10 @@ function GameOnePc() {
   const [winner, setWinner] = useState(null);
 
 
+
+  const [winningLine, setWinningLine] = useState([]);
+
+
   const checkWinner = (board) => {
     const lines = [
       [0, 1, 2],
@@ -30,7 +34,7 @@ function GameOnePc() {
     for (let line of lines) {
       const [a, b, c] = line;
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-        return board[a];
+        return { winner: board[a], line };
       }
     }
     return null;
@@ -47,6 +51,7 @@ function GameOnePc() {
     if (winner) {
       setGameOver(true);
       setWinner(winner);
+      setWinningLine(winner.line);
     } else if (!updatedBoard.includes(null)) {
       setGameOver(true);
       setWinner('Tie');
@@ -60,9 +65,12 @@ function GameOnePc() {
     setCurrentPlayer('X');
     setGameOver(false);
     setWinner(null);
+    setWinningLine([]);
+
   };
 
   return (
+
       <div className='container'>
         <h1 className='title'>Tic-Tac-Toe Game</h1>
         <div className="turn-indicator">
@@ -100,6 +108,7 @@ function GameOnePc() {
             </div>
         )}
         <button className='new-game' onClick={() => window.location.reload()}>Play again!</button>
+
 
       </div>
   );
