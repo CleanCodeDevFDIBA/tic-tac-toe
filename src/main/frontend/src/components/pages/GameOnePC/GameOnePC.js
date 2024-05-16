@@ -12,8 +12,7 @@ function GameOnePc() {
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [gameOver, setGameOver] = useState(false);
   const [winner, setWinner] = useState(null);
-
-
+  const [winningLine, setWinningLine] = useState([]);
 
   const checkWinner = (board) => {
     const lines = [
@@ -30,7 +29,7 @@ function GameOnePc() {
     for (let line of lines) {
       const [a, b, c] = line;
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-        return board[a];
+        return { winner: board[a], line };
       }
     }
     return null;
@@ -47,6 +46,7 @@ function GameOnePc() {
     if (winner) {
       setGameOver(true);
       setWinner(winner);
+      setWinningLine(winner.line);
     } else if (!updatedBoard.includes(null)) {
       setGameOver(true);
       setWinner('Tie');
@@ -60,6 +60,8 @@ function GameOnePc() {
     setCurrentPlayer('X');
     setGameOver(false);
     setWinner(null);
+    setWinningLine([]);
+
   };
 
   return (
@@ -68,7 +70,8 @@ function GameOnePc() {
                 <div className='board'>
                   <div className='row1'>
                     {board.slice(0, 3).map((value, index) => (
-                      <div key={index} className='boxes' onClick={() => handleSquareClick(index)}>
+                      <div key={index} className={`boxes ${winningLine.includes(index) ? 'glow' : ''}`}
+                       onClick={() => handleSquareClick(index)}>
                        {value === 'X' && <img src={xImage} alt='X' />}
                         {value === 'O' && <img src={oImage} alt='O' />}
                       </div>
@@ -76,24 +79,26 @@ function GameOnePc() {
                   </div>
                   <div className='row2'>
                     {board.slice(3, 6).map((value, index) => (
-                      <div key={index + 3} className='boxes' onClick={() => handleSquareClick(index + 3)}>
-                       {value === 'X' && <img src={xImage} alt='X' />}
-                        {value === 'O' && <img src={oImage} alt='O' />}
+                      <div key={index+3} className={`boxes ${winningLine.includes(index+3) ? 'glow' : ''}`}
+                              onClick={() => handleSquareClick(index+3)}>
+                              {value === 'X' && <img src={xImage} alt='X' />}
+                              {value === 'O' && <img src={oImage} alt='O' />}
                       </div>
                     ))}
                   </div>
                   <div className='row3'>
                     {board.slice(6, 9).map((value, index) => (
-                      <div key={index + 6} className='boxes' onClick={() => handleSquareClick(index + 6)}>
-                       {value === 'X' && <img src={xImage} alt='X' />}
-                       {value === 'O' && <img src={oImage} alt='O' />}
-                      </div>
+                      <div key={index+6} className={`boxes ${winningLine.includes(index+6) ? 'glow' : ''}`}
+                        onClick={() => handleSquareClick(index+6)}>
+                         {value === 'X' && <img src={xImage} alt='X' />}
+                         {value === 'O' && <img src={oImage} alt='O' />}
+                       </div>
                     ))}
                   </div>
                 </div>
                 {gameOver && (
                         <div className='message'>
-                          {winner === 'Tie' ? "It's a tie!" : `Winner: ${winner}`}
+                          {winner === 'Tie' ? "It's a tie!" : `Winner: ${board[winningLine[0]]}`}
                         </div>
                       )}
                 <button className='reset' onClick={() => window.location.reload()}>Reset</button>
