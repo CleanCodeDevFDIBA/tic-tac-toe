@@ -83,6 +83,7 @@ function GameOnePc() {
                   {value === 'X' && <img src={xImage} alt='X'/>}
                   {value === 'O' && <img src={oImage} alt='O'/>}
                 </div>
+
             ))}
           </div>
           <div className='row2'>
@@ -104,16 +105,18 @@ function GameOnePc() {
             ))}
           </div>
         </div>
-        {gameOver && (
-            <div className='message'>
-              {winner === 'Tie' ? "It's a tie!" : `Winner: ${board[winningLine[0]]}`}
-            </div>
-        )}
-        <button className='new-game' onClick={() => window.location.reload()}>Play again!</button>
-
+        <div className='frame1'>
+          {gameOver && (
+              <div className='message'>
+                {winner === 'Tie' ? "It's a tie!" : `Winner: ${board[winningLine[0]]}`}
+              </div>
+          )}
+          <button className='new-game' onClick={() => window.location.reload()}>Play again!</button>
+        </div>
 
       </div>
   );
+
 }
 
 export default GameOnePc;
