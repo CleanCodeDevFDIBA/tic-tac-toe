@@ -91,13 +91,14 @@ function GameOnePc() {
                     ))}
                   </div>
                 </div>
-                {gameOver && (
-                        <div className='message'>
-                          {winner === 'Tie' ? "It's a tie!" : `Winner: ${winner}`}
-                        </div>
-                      )}
-                <button className='reset' onClick={() => window.location.reload()}>Reset</button>
-
+                <div className='frame1'>
+                  {gameOver && (
+                          <div className='message'>
+                            <p>{winner === 'Tie' ? "It's a tie!" : `Winner :  ${winner}`}</p>
+                          </div>
+                        )}
+                  <button className='reset' onClick={() => window.location.reload()}>Reset</button>
+                </div>
               </div>
             );
 }
