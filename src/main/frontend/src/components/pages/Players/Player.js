@@ -25,14 +25,18 @@ function Player() {
 
        axios.post('http://localhost:8080/api/createGame', gameDataJSON)
        .then(response => {
-           if (response.status >= 200 && response.status < 300) {
-             // The request was successful
-             console.log('Response data:', response.data);
-           } else {
-             // The request was not successful
-             console.error('Request failed with status:', response.status);
-           }
-         });
+           console.log("neshto")
+               if (response.status >= 200 && response.status < 300) {
+                 // The request was successful
+                 let res = response.data;
+                 console.log("Response: ", response)
+                 console.log('Response data: ', res);
+
+               } else {
+                 // The request was not successful
+                 console.error('Request failed with status:', response.status);
+               }
+             });
       } catch (error) {
         console.error('Error creating game:', error);
       }

@@ -21,7 +21,7 @@ const [game, setGame] = useState(null);
         const response = await axios.get('http://localhost:8080/games');
         setGame(response.data);
       } catch (error) {
-        console.error('Error creating game:', error);
+        console.error('Error while in-game:', error);
       }
     };
 
