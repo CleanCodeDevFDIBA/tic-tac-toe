@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Player.css';
-import { createGame } from '../../../js/apiCalls.js'
 
 function Player() {
     const [player1Name, setPlayer1Name] = useState('');
@@ -9,7 +8,7 @@ function Player() {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const handleStartGame = async (e) => {
+    const handleStartGame = (e) => {
         e.preventDefault();
         if (player1Name.trim() === '' || player2Name.trim() === '') {
             setError('Both player names must be entered!');
@@ -19,16 +18,14 @@ function Player() {
 //            e.preventDefault();
         } else {
             setError('');
-            let gameId = await createGame(player1Name, player2Name);
-            navigate('/GameOnePC', { state: { gameId, player1Name, player2Name } });
+            navigate('/GameOnePC', { state: { player1Name, player2Name } });
 
         }
     };
 
-
     return (
         <div className='container'>
-            <h1>Enter Players names!</h1>
+            <h1>Enter Player names!</h1>
             <div className="player-names">
                 <label className="player1">
                     Player 1 (X):
