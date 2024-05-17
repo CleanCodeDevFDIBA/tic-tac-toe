@@ -19,8 +19,7 @@ function Player() {
 //            e.preventDefault();
         } else {
             setError('');
-            let gameId = await createGame(player1Name, player2Name);
-            navigate('/GameOnePC', { state: { gameId, player1Name, player2Name } });
+            navigate('/GameOnePC', { state: { player1Name, player2Name } });
 
         }
     };

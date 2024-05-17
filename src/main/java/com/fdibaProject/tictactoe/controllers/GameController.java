@@ -21,20 +21,20 @@ public class GameController {
     public ResponseEntity<Game> createGame(@RequestBody Game game) {
         String player1 = game.getPlayer1();
         String player2 = game.getPlayer2();
-        System.out.println("Players: " + player1+ " " + player2);
-        game = gameService.createGame(player1, player2);
-        System.out.println(game.getId());
+        String winner = game.getWinner();
+        System.out.println("Players: " + player1+ " " + player2 +"\nWinner: " + winner);
+        game = gameService.createGame(player1, player2, winner);
         return new ResponseEntity<>(game, HttpStatus.CREATED);
     }
-
-    @PostMapping("/announceWinner")
-    public ResponseEntity<Game> announceWinner(@RequestBody Game game) {
-        System.out.println(game);
-        String winner_id = game.getWinner();
-        Long game_id = game.getId();
-        System.out.println(winner_id + " " + game_id);
-        game = gameService.mark_winner(winner_id, game_id);
-        return new ResponseEntity<>(game, HttpStatus.OK);
-    }
-
+//
+//    @PostMapping("/announceWinner")
+//    public ResponseEntity<Game> announceWinner(@RequestBody Game game) {
+//        System.out.println(game);
+//        String winner_id = game.getWinner();
+//        Long game_id = game.getId();
+//        System.out.println(winner_id + " " + game_id);
+//        game = gameService.mark_winner(winner_id, game_id);
+//        return new ResponseEntity<>(game, HttpStatus.OK);
+//    }
+//
 }

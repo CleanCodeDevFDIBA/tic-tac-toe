@@ -9,9 +9,9 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "game_status")
-    private GameStatus status;
+//    @Enumerated(EnumType.STRING)
+//    @Column(name = "game_status")
+//    private GameStatus status;
 
     @Column(name = "winner_id")
     private String winner;
@@ -30,13 +30,13 @@ public class Game {
         this.id = id;
     }
 
-    public GameStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(GameStatus status) {
-        this.status = status;
-    }
+//    public GameStatus getStatus() {
+//        return status;
+//    }
+//
+//    public void setStatus(GameStatus status) {
+//        this.status = status;
+//    }
 
     public String  getWinner() {
         return winner;
