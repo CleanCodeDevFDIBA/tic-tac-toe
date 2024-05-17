@@ -72,7 +72,7 @@ function GameOnePc() {
 
   return (
       <div className='container'>
-        <h1 className='title'>Tic-Tac-Toe Game</h1>
+        <h1 className='game-title'>Tic-Tac-Toe Game</h1>
         <div className="turn-indicator">
           <p>Current Turn: {currentPlayer=='X'?player1Name:player2Name}</p>
         </div>
@@ -114,26 +114,25 @@ function GameOnePc() {
           )}
 
 
-          
-            <div className="score-button">
-              <a href="/Scoreboard">
-                <button>Scoreboard</button>
-              </a>
+            <div className="buttons">
+                <div className="home-button">
+                    <a href="/">
+                        <button>Home</button>
+                    </a>
+                </div>
+                <div className="score-button">
+                    <a href="/Scoreboard">
+                        <button>Scoreboard</button>
+                    </a>
+                </div>
+                <div className="new-game">
+                    <a href="/GameOnePC" onClick={resetGame}>
+                        <button>Play again</button>
+                    </a>
+                </div>
+
             </div>
-          
-           <div className="buttons">
-                           <div className="startGameButton">
-                               <a href="/GameOnePC" onClick={resetGame}>
-                                   <button>Play again</button>
-                               </a>
-                           </div>
-                           <div className="homeButton">
-                               <a href="/">
-                                   <button>Home</button>
-                               </a>
-                           </div>
-                       </div>
-                       </div>
+        </div>
       </div>
   );
 

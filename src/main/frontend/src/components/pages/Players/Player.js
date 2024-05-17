@@ -45,17 +45,18 @@ function Player() {
                 </label>
             </div>
             {error && <div className="error-message">{error}</div>}
-            <div className="buttons">
+            <div className="buttons-container">
+                <div className="homePageButton">
+                    <a href="/">
+                        <button>Home</button>
+                    </a>
+                </div>
                 <div className="startGameButton">
                     <a href="/GameOnePC" onClick={handleStartGame}>
                         <button>Start game</button>
                     </a>
                 </div>
-                <div className="homeButton">
-                    <a href="/">
-                        <button>Home</button>
-                    </a>
-                </div>
+
             </div>
         </div>
     );
