@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Player.css';
 
 function Player() {
     const [player1Name, setPlayer1Name] = useState('');
     const [player2Name, setPlayer2Name] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleStartGame = (e) => {
+        e.preventDefault();
         if (player1Name.trim() === '' || player2Name.trim() === '') {
             setError('Both player names must be entered!');
-            e.preventDefault();
+//            e.preventDefault();
         } else if (player1Name.trim() === player2Name.trim()) {
             setError('Players must have different names!');
-            e.preventDefault();
+//            e.preventDefault();
         } else {
             setError('');
+            navigate('/GameOnePC', { state: { player1Name, player2Name } });
 
         }
     };
@@ -44,7 +48,7 @@ function Player() {
             <div className="buttons">
                 <div className="startGameButton">
                     <a href="/GameOnePC" onClick={handleStartGame}>
-                        <button>Start a game</button>
+                        <button>Start game</button>
                     </a>
                 </div>
                 <div className="homeButton">
