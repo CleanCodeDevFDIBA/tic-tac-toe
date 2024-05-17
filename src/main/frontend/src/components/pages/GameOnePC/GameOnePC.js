@@ -112,6 +112,15 @@ function GameOnePc() {
                 {winner === 'Tie' ? "It's a tie!" : `Winner: ${board[winningLine[0]]=='X'? player1Name:player2Name}`}
               </div>
           )}
+
+
+          
+            <div className="score-button">
+              <a href="/Scoreboard">
+                <button>Scoreboard</button>
+              </a>
+            </div>
+          
            <div className="buttons">
                            <div className="startGameButton">
                                <a href="/GameOnePC" onClick={resetGame}>

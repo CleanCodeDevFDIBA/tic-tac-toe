@@ -10,6 +10,7 @@ import Home from "./components/pages/Home/Home";
 import About from "./components/pages/About/About";
 import GameOnePc from "./components/pages/GameOnePC/GameOnePC";
 import Player from "./components/pages/Players/Player";
+import Scoreboard from "./components/pages/Scoreboard/Scoreboard";
 //import SignUp from "./pages/signup";
 //import Contact from "./pages/contact";
 
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/About" element={<About />} />
                 <Route path="/Players" element={<Player />} />
                 <Route path="/GameOnePC" element={<GameOnePc />} />
+                <Route path="/Scoreboard" element={<Scoreboard />} />
             </Routes>
         </Router>
 

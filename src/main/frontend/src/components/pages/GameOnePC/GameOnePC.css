@@ -2,8 +2,8 @@
     text-align: center;
 }
 .title{
-    margin-top: 15px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 5px;
     color: #703a2e;
     font-size: 35px;
     display: flex;
@@ -17,6 +17,24 @@
     font-weight: bold;
 }
 
+
+.new-game, .score-button a button{
+    width: 180px;
+    height: 50px;
+    margin-bottom: 10px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50px;
+    background: #F3A98E;
+    border: 1px solid #703a2e;
+    font-size: 26px;
+    font-weight: bold;
+    color: #703a2e;
+}
+.new-game:hover, .score-button a button:hover {
+    background-color: #804336;
+    color: #f5b098;
+}
 
 .boxes{
     display: flex;
@@ -45,7 +63,13 @@
     width: 160px;
 }
 .frame1{
-    margin-top: 15px;
+    margin-top: 10px;
+}
+.frame2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3em;
 }
 .message{
     margin: 0 auto;

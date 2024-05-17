@@ -14,7 +14,7 @@
     justify-content: center;
     align-items: center;
 }
-.twoButtons{
+.buttons{
     width: 400px;
     margin: 0 auto;
     margin-top: 80px;
@@ -23,7 +23,15 @@
     align-items: center;
     gap: 5em;
 }
-.firstButton a button{
+
+.secondRowButtons {
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    align-items: inherit;
+    gap: 5em;
+}
+.firstButton a button {
     padding: 10px 25px 15px 25px;
     text-decoration: none;
     border-radius: 20px;
@@ -34,10 +42,10 @@
     color: #703a2e;
 }
 .firstButton a button:hover {
-    background-color: #804336; /* Green */
+    background-color: #804336;
     color: #f5b098;
 }
-.secondButton a button{
+.secondButton a button, .scoreButton a button{
     padding: 10px 25px 15px 25px;
     text-decoration: none;
     border-radius: 20px;
@@ -47,7 +55,7 @@
     font-weight: bold;
     color: #f5b098;
 }
-.secondButton a button:hover {
+.secondButton a button:hover, .scoreButton a button:hover {
     background-color: #F3A98E; /* Green */
     color: #703a2e;
     border: 1px solid #703a2e;
