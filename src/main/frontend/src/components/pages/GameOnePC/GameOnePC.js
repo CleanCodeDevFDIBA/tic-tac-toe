@@ -4,6 +4,8 @@ import axios from 'axios';
 import xImage from './X-img.png';
 import oImage from './O-img.png';
 import { useLocation } from 'react-router-dom';
+import { createGame, sendResult } from '../../../js/apiCalls.js'
+import { useNavigate } from 'react-router-dom';
 
 const API_BASE_URL = 'http://localhost:8080/api/games';
 
@@ -15,11 +17,11 @@ function GameOnePc() {
   const [gameOver, setGameOver] = useState(false);
   const [winner, setWinner] = useState(null);
   const [winningLine, setWinningLine] = useState([]);
+  const navigate = useNavigate();
   const location = useLocation();
-  const { player1Name, player2Name } = location.state || {};
+  const { gameId, player1Name, player2Name } = location.state || {};
 
-
-
+  console.log(location)
   const checkWinner = (board) => {
     const lines = [
       [0, 1, 2],
@@ -31,7 +33,6 @@ function GameOnePc() {
       [0, 4, 8],
       [2, 4, 6],
     ];
-
     for (let line of lines) {
       const [a, b, c] = line;
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
@@ -41,7 +42,7 @@ function GameOnePc() {
     return null;
   };
 
-  const handleSquareClick = async (index) => {
+  const handleSquareClick = (index) => {
     if (board[index] || gameOver) return;
 
     const updatedBoard = [...board];
@@ -49,24 +50,49 @@ function GameOnePc() {
     setBoard(updatedBoard);
 
     const winner = checkWinner(updatedBoard);
+
     if (winner) {
       setGameOver(true);
       setWinner(winner);
       setWinningLine(winner.line);
+      console.log(winner)
+
+      if (winner.winner == "X"){
+            sendResult(gameId, player1Name)
+        }
+      else{
+        sendResult(gameId, player2Name)
+       }
+
     } else if (!updatedBoard.includes(null)) {
       setGameOver(true);
       setWinner('Tie');
+      sendResult(gameId, null)
     } else {
       setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
     }
   };
 
-  const resetGame = () => {
-    setBoard(Array(9).fill(null));
-    setCurrentPlayer('X');
-    setGameOver(false);
-    setWinner(null);
-    setWinningLine([]);
+  const resetGame = async () => {
+    await createGame(player1Name, player2Name);
+    gameId = gameId + 1;
+    navigate('/GameOnePC', { state: { gameId, player1Name, player2Name } });
+//    setBoard(Array(9).fill(null));
+//    setCurrentPlayer('X');
+//    setGameOver(false);
+//    setWinner(null);
+//    console.log(winner)
+//    setWinningLine([]);
+//    setGameId(game_id+1);
+//    try {
+//        let newGameId = await createGame(player1Name, player2Name);
+//        if (newGameId != game_id){
+//            console.log("GameId after reset:", newGameId);
+//            setGameId(game_id+1);
+//        }
+//    } catch (error) {
+//        console.error('Error creating game:', error);
+//    }
 
   };
 
