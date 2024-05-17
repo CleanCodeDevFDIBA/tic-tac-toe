@@ -1,0 +1,48 @@
+.scoreboard-page {
+    text-align: center;
+    color: #703a2e;
+    margin-top: 50px;
+}
+
+.scoreboard-title {
+    font-size: 50px;
+
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th, td {
+    border: 2px solid #703a2e;
+    padding: 8px;
+}
+
+th {
+    background-color: #F3A98E;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.homeButton{
+    margin-top: 250px;
+    text-align: center;
+}
+.homeButton a button{
+    padding: 5px 25px 10px 25px;
+    text-decoration: none;
+    border-radius: 20px;
+    background: #F3A98E;
+    border: 1px solid #703a2e;
+    font-size: 24px;
+    font-weight: bold;
+    color: #703a2e;
+}
+.homeButton a button:hover {
+    background-color: #804336;
+    color: #f5b098;
+}

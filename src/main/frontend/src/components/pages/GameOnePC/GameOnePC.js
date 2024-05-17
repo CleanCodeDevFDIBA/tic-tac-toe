@@ -111,7 +111,16 @@ function GameOnePc() {
                 {winner === 'Tie' ? "It's a tie!" : `Winner: ${board[winningLine[0]]}`}
               </div>
           )}
-          <button className='new-game' onClick={() => window.location.reload()}>Play again!</button>
+
+          <div className = "frame2">
+            <button className='new-game' onClick={() => window.location.reload()}>Play again!</button>
+            <div className="score-button">
+              <a href="/Scoreboard">
+                <button>Scoreboard</button>
+              </a>
+            </div>
+          </div>
+
         </div>
 
       </div>
