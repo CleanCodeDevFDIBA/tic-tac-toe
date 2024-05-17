@@ -27,11 +27,12 @@ public class GameController {
         return new ResponseEntity<>(game, HttpStatus.CREATED);
     }
 
-    @PutMapping("/announceWinner")
+    @PostMapping("/announceWinner")
     public ResponseEntity<Game> announceWinner(@RequestBody Game game) {
         System.out.println(game);
         String winner_id = game.getWinner();
         Long game_id = game.getId();
+        System.out.println(winner_id + " " + game_id);
         game = gameService.mark_winner(winner_id, game_id);
         return new ResponseEntity<>(game, HttpStatus.OK);
     }

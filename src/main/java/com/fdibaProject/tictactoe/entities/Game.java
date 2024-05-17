@@ -16,10 +16,10 @@ public class Game {
     @Column(name = "winner_id")
     private String winner;
 
-    @Column(name = "player1_id", nullable = false, unique = true)
+    @Column(name = "player1_id", nullable = false)
     private String player1;
 
-    @Column(name = "player2_id", nullable = false, unique = true)
+    @Column(name = "player2_id", nullable = false)
     private String player2;
 
     public Long getId() {

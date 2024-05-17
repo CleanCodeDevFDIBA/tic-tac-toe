@@ -39,17 +39,19 @@
 
 }
 
-.buttons {
+.buttons-container {
     width: 400px;
     margin: 0 auto;
-    margin-top: 80px;
+    margin-top: 30px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     gap: 3em;
+    align-items: center;
+    justify-content: center;
+
 }
 
-.startGameButton a button{
+.startGameButton a button, .homePageButton a button{
     padding: 10px 25px 15px 25px;
     text-decoration: none;
     border-radius: 20px;
@@ -60,24 +62,15 @@
     color: #703a2e;
 }
 
-.startGameButton a button:hover {
+.startGameButton a button:hover, .homePageButton a button:hover {
     background-color: #804336;
     color: #f5b098;
 }
 
-.homeButton a button{
-    padding: 10px 25px 15px 25px;
-    text-decoration: none;
-    border-radius: 20px;
-    background: #804336;
-    font-size: 24px;
-    font-weight: bold;
-    color: #f5b098;
+.error-message {
+  color: #703a2e;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.homeButton a button:hover {
-    background-color: #F3A98E;
-    color: #703a2e;
-    border: 1px solid #703a2e;
-}
 

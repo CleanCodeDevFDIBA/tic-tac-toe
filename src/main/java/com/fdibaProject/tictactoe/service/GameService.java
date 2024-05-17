@@ -28,7 +28,9 @@ public class GameService {
 
     public Game mark_winner(String winner, Long id){
         Game game = getGameById(id);
-        game.setWinner(winner);
+        if(winner != null) {
+            game.setWinner(winner);
+        }
         game.setStatus(FINISHED);
         return saveGame(game);
     }

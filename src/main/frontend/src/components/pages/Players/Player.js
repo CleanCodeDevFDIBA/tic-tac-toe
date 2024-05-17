@@ -1,55 +1,30 @@
-import './Player.css'
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import './Player.css';
+import { createGame } from '../../../js/apiCalls.js'
 
 function Player() {
     const [player1Name, setPlayer1Name] = useState('');
     const [player2Name, setPlayer2Name] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
-    const checkIfNamesAreFilled = () => {
+    const handleStartGame = async (e) => {
+        e.preventDefault();
+        if (player1Name.trim() === '' || player2Name.trim() === '') {
+            setError('Both player names must be entered!');
+//            e.preventDefault();
+        } else if (player1Name.trim() === player2Name.trim()) {
+            setError('Players must have different names!');
+//            e.preventDefault();
+        } else {
+            setError('');
+            let gameId = await createGame(player1Name, player2Name);
+            navigate('/GameOnePC', { state: { gameId, player1Name, player2Name } });
 
-        if (player1Name.trim() !== '' && player2Name.trim() !== '' ){
-            console.log('Player 1:', player1Name);
-            console.log('Player 2:', player2Name);
-            return true;
         }
-        return false;
     };
 
-    const createGame = (username1, username2) => {
-      try {
-        let gameDataJSON = {
-            player1: username1,
-            player2 : username2
-        }
-
-       axios.post('http://localhost:8080/api/createGame', gameDataJSON)
-       .then(response => {
-           console.log("neshto")
-               if (response.status >= 200 && response.status < 300) {
-                 // The request was successful
-                 let res = response.data;
-                 console.log("Response: ", response)
-                 console.log('Response data: ', res);
-
-               } else {
-                 // The request was not successful
-                 console.error('Request failed with status:', response.status);
-               }
-             });
-      } catch (error) {
-        console.error('Error creating game:', error);
-      }
-    };
-
-    const initialiseGame = () => {
-        let areUsernamesFilled = checkIfNamesAreFilled();
-        if (areUsernamesFilled) {
-            createGame(player1Name, player2Name);
-            window.location.href = 'http://localhost:3000/GameOnePC';
-        }
-
-      };
 
     return (
         <div className='container'>
@@ -59,30 +34,32 @@ function Player() {
                     Player 1 (X):
                     <input
                         type="text"
-                        required
                         value={player1Name}
                         onChange={(e) => setPlayer1Name(e.target.value)}
                     />
                 </label>
-
                 <label>
                     Player 2 (O):
                     <input
                         type="text"
-                        required
                         value={player2Name}
                         onChange={(e) => setPlayer2Name(e.target.value)}
                     />
                 </label>
             </div>
-
-            <div className="buttons">
+            {error && <div className="error-message">{error}</div>}
+            <div className="buttons-container">
+                <div className="homePageButton">
+                    <a href="/">
+                        <button>Home</button>
+                    </a>
+                </div>
                 <div className="startGameButton">
-                    <button onClick={initialiseGame}>Start the game</button>
+                    <a href="/GameOnePC" onClick={handleStartGame}>
+                        <button>Start game</button>
+                    </a>
                 </div>
-                <div className="homeButton">
-                    <a href="/">Home</a>
-                </div>
+
             </div>
         </div>
     );
