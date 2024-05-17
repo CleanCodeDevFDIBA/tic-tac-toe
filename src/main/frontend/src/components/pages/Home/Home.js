@@ -8,7 +8,7 @@ function Home(){
         <div className='container'>
             <h1 className="title1">Welcome to Tic-Tac-Toe!</h1>
             <img src= {logo}  alt="Tic-Tac-Toe"/>
-            <div className="buttons">
+            <div className="home-buttons">
 
                 <div className="firstButton">
                     <a href="/About">
