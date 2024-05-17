@@ -17,23 +17,7 @@
     font-weight: bold;
 }
 
-.new-game{
-    width: 180px;
-    height: 50px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    border-radius: 50px;
-    background: #F3A98E;
-    border: 1px solid #703a2e;
-    font-size: 26px;
-    font-weight: bold;
-    color: #703a2e;
-}
-.new-game:hover {
-    background-color: #804336;
-    color: #f5b098;
-}
+
 .boxes{
     display: flex;
     justify-content: center;
@@ -104,5 +88,52 @@
     box-shadow: 0 0 10px #99505c, 0 0 20px #99505c, 0 0 30px #99505c, 0 0 40px #99505c;
   }
 }
+
+.buttons {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: row;
+}
+
+.startGameButton a button{
+    width: 190px;
+    margin-top: 0px;
+    padding: 10px 25px 15px 25px;
+    text-decoration: none;
+    border-radius: 20px;
+    background: #F3A98E;
+    border: 1px solid #703a2e;
+    font-size: 24px;
+    font-weight: bold;
+    color: #703a2e;
+}
+
+.startGameButton a button:hover {
+    background-color: #804336;
+    color: #f5b098;
+}
+
+.homeButton a button{
+    width: 190px;
+    padding: 10px 25px 15px 25px;
+    text-decoration: none;
+    border-radius: 20px;
+    background: #804336;
+    border: 1px solid #703a2e;
+    font-size: 24px;
+    font-weight: bold;
+    color: #f5b098;
+}
+
+.homeButton a button:hover {
+    background-color: #F3A98E;
+    color: #703a2e;
+    border: 1px solid #703a2e;
+}
+
 
 

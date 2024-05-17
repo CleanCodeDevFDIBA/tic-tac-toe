@@ -3,6 +3,7 @@ import './GameOnePC.css';
 import axios from 'axios';
 import xImage from './X-img.png';
 import oImage from './O-img.png';
+import { useLocation } from 'react-router-dom';
 
 const API_BASE_URL = 'http://localhost:8080/api/games';
 
@@ -13,10 +14,10 @@ function GameOnePc() {
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [gameOver, setGameOver] = useState(false);
   const [winner, setWinner] = useState(null);
-
-
-
   const [winningLine, setWinningLine] = useState([]);
+  const location = useLocation();
+  const { player1Name, player2Name } = location.state || {};
+
 
 
   const checkWinner = (board) => {
@@ -73,7 +74,7 @@ function GameOnePc() {
       <div className='container'>
         <h1 className='title'>Tic-Tac-Toe Game</h1>
         <div className="turn-indicator">
-          <p>Current Turn: {currentPlayer}</p>
+          <p>Current Turn: {currentPlayer=='X'?player1Name:player2Name}</p>
         </div>
         <div className='board'>
         <div className='row1'>
@@ -108,12 +109,22 @@ function GameOnePc() {
         <div className='frame1'>
           {gameOver && (
               <div className='message'>
-                {winner === 'Tie' ? "It's a tie!" : `Winner: ${board[winningLine[0]]}`}
+                {winner === 'Tie' ? "It's a tie!" : `Winner: ${board[winningLine[0]]=='X'? player1Name:player2Name}`}
               </div>
           )}
-          <button className='new-game' onClick={() => window.location.reload()}>Play again!</button>
-        </div>
-
+           <div className="buttons">
+                           <div className="startGameButton">
+                               <a href="/GameOnePC" onClick={resetGame}>
+                                   <button>Play again</button>
+                               </a>
+                           </div>
+                           <div className="homeButton">
+                               <a href="/">
+                                   <button>Home</button>
+                               </a>
+                           </div>
+                       </div>
+                       </div>
       </div>
   );
 
