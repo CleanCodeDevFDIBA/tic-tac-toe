@@ -4,7 +4,7 @@ import axios from 'axios';
 import xImage from './X-img.png';
 import oImage from './O-img.png';
 import { useLocation } from 'react-router-dom';
-import { createGame } from '../../../js/apiCalls.js'
+import { saveGame } from '../../../js/apiCalls.js'
 
 
 function GameOnePc() {
@@ -17,7 +17,6 @@ function GameOnePc() {
   const location = useLocation();
   const { player1Name, player2Name } = location.state || {};
 
-  console.log(location)
   const checkWinner = (board) => {
     const lines = [
       [0, 1, 2],
@@ -45,24 +44,24 @@ function GameOnePc() {
     updatedBoard[index] = currentPlayer;
     setBoard(updatedBoard);
 
-    const winner = checkWinner(updatedBoard);
+    const winnerInfo = checkWinner(updatedBoard);
 
-    if (winner) {
+    if (winnerInfo) {
       setGameOver(true);
-      setWinner(winner);
-      setWinningLine(winner.line);
+      setWinner(winnerInfo);
+      setWinningLine(winnerInfo.line);
 
-      if (winner.winner == "X"){
-            createGame(player1Name, player2Name, player1Name)
+      if (winnerInfo.winner == "X"){
+            saveGame(player1Name, player2Name, player1Name)
         }
       else{
-        createGame(player1Name, player2Name, player2Name)
+        saveGame(player1Name, player2Name, player2Name)
        }
 
     } else if (!updatedBoard.includes(null)) {
       setGameOver(true);
       setWinner('Tie');
-      createGame(player1Name, player2Name, null)
+      saveGame(player1Name, player2Name, null)
     } else {
       setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
     }

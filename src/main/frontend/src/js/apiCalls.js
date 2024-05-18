@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-export async function createGame (username1, username2, winner) {
+export async function saveGame (username1, username2, winner) {
       let gameId = null;
       try {
         let gameDataJSON = {

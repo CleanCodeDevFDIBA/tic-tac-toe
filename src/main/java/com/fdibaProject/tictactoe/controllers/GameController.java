@@ -24,6 +24,7 @@ public class GameController {
         String winner = game.getWinner();
         System.out.println("Players: " + player1+ " " + player2 +"\nWinner: " + winner);
         game = gameService.createGame(player1, player2, winner);
+        System.out.println("Game ID: " + game.getId());
         return new ResponseEntity<>(game, HttpStatus.CREATED);
     }
 //
