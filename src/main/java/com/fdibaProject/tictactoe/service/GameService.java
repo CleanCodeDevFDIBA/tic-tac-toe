@@ -2,19 +2,15 @@ package com.fdibaProject.tictactoe.service;
 
 
 import com.fdibaProject.tictactoe.entities.Game;
-import com.fdibaProject.tictactoe.entities.Player;
-import com.fdibaProject.tictactoe.exceptions.InvalidMoveException;
-import com.fdibaProject.tictactoe.exceptions.ResourceNotFoundException;
 import com.fdibaProject.tictactoe.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 
-import static com.fdibaProject.tictactoe.entities.GameStatus.FINISHED;
-import static com.fdibaProject.tictactoe.entities.GameStatus.IN_PROGRESS;
+import static com.fdibaProject.tictactoe.entities.GameStatus.*;
+
 
 @Service
 public class GameService {
@@ -22,23 +18,22 @@ public class GameService {
     @Autowired
     private GameRepository gameRepository;
 
-    public Game createGame() {
+    public Game createGame(String username1, String username2, String winner) {
         Game game = new Game();
-        game.setBoard("---------");
-        game.setStatus(IN_PROGRESS);
-        game.setPlayer1(new Player());
-        game.getPlayer1().setSymbol('X');
-        game.setPlayer2(new Player());
-        game.getPlayer2().setSymbol('O');
-        game.setCurrentPlayer(game.getPlayer1());
-        return gameRepository.save(game);
+        game.setPlayer1(username1);
+        game.setPlayer2(username2);
+        game.setWinner(winner);
+        return saveGame(game);
     }
-
-
-    public List<Game> getAllGames() {
-        return gameRepository.findAll();
-
-    }
+//
+//    public Game mark_winner(String winner, Long id){
+//        Game game = getGameById(id);
+//        if(winner != null) {
+//            game.setWinner(winner);
+//        }
+//        game.setStatus(FINISHED);
+//        return saveGame(game);
+//    }
 
     public Game getGameById(Long id) {
         return gameRepository.findById(id).orElse(null);
@@ -48,7 +43,4 @@ public class GameService {
         return gameRepository.save(game);
     }
 
-    public void deleteGame(Long id) {
-        gameRepository.deleteById(id);
-    }
 }
