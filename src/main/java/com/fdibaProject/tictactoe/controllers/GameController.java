@@ -2,11 +2,16 @@ package com.fdibaProject.tictactoe.controllers;
 
 
 import com.fdibaProject.tictactoe.entities.Game;
+import com.fdibaProject.tictactoe.entities.Player;
+import com.fdibaProject.tictactoe.entities.Scoreboard;
 import com.fdibaProject.tictactoe.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -27,15 +32,14 @@ public class GameController {
         System.out.println("Game ID: " + game.getId());
         return new ResponseEntity<>(game, HttpStatus.CREATED);
     }
-//
-//    @PostMapping("/announceWinner")
-//    public ResponseEntity<Game> announceWinner(@RequestBody Game game) {
-//        System.out.println(game);
-//        String winner_id = game.getWinner();
-//        Long game_id = game.getId();
-//        System.out.println(winner_id + " " + game_id);
-//        game = gameService.mark_winner(winner_id, game_id);
-//        return new ResponseEntity<>(game, HttpStatus.OK);
-//    }
-//
+
+    @GetMapping("/scoreboard")
+    public ResponseEntity<Scoreboard> getScoreboard(){
+        List<Player> scoreboard = gameService.getScoreboard();
+        Scoreboard sb = new Scoreboard();
+        sb.setScoreboard(scoreboard);
+        System.out.println(scoreboard);
+        return new ResponseEntity<>(sb, HttpStatus.OK);
+    }
+
 }

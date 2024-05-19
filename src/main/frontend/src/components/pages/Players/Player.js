@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Player.css';
-import { createGame } from '../../../js/apiCalls.js'
 
 function Player() {
     const [player1Name, setPlayer1Name] = useState('');

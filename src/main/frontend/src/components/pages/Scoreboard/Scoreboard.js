@@ -6,14 +6,15 @@ const Scoreboard = () => {
     const [players, setPlayers] = useState([]);
 
     useEffect(() => {
-        // Fetch the scoreboard data from the API
-        axios.get('/api/scoreboard')
+
+        axios.get('http://localhost:8080/api/scoreboard')
             .then(response => {
-                setPlayers(response.data);
+                setPlayers(response.data.scoreboard);
             })
             .catch(error => {
                 console.error('Error fetching the scoreboard data', error);
             });
+
     }, []);
 
     return (
@@ -29,8 +30,8 @@ const Scoreboard = () => {
                 </thead>
                 <tbody>
                 {players.map((player, index) => (
-                    <tr key={player.id}>
-                        <td>{index + 1}</td>
+                    <tr key={index}>
+                        <td>{player.ranking}</td>
                         <td>{player.name}</td>
                         <td>{player.wins}</td>
                     </tr>
