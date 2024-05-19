@@ -34,3 +34,5 @@ build/
 
 src/main/java/com/fdibaProject/tictactoe/dbUtils.java
 src/main/resources/hibernate.cfg.xml
+
+src/main/resources/application.properties
