@@ -4,8 +4,34 @@ import axios from 'axios';
 import xImage from './X-img.png';
 import oImage from './O-img.png';
 import { useLocation } from 'react-router-dom';
-import { saveGame } from '../../../js/apiCalls.js'
 
+
+ async function saveGame (username1, username2, winner) {
+      let gameId = null;
+      try {
+        let gameDataJSON = {
+            player1: username1,
+            player2 : username2,
+            winner: winner
+        }
+       const response = await axios.post('http://localhost:8080/api/createGame', gameDataJSON)
+
+       if (response.status >= 200 && response.status < 300) {
+
+         let gameInfo = response.data;
+         console.log('Response data: ', gameInfo);
+         gameId = gameInfo["id"];
+         console.log("game id after api call:" + gameId);
+
+       } else {
+         console.error('Request failed with status:', response.status);
+       }
+
+      } catch (error) {
+        console.error('Error creating game:', error);
+      }
+      return gameId;
+};
 
 function GameOnePc() {
 
