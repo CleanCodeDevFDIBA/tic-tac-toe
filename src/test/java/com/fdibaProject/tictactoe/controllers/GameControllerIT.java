@@ -49,7 +49,7 @@ public class GameControllerIT {
 
     @Test
     public void testGetScoreboard() throws Exception {
-        // Mocking the scoreboard data
+        // Given
         List<Player> players = Arrays.asList(
                 new Player(5, "Player1"),
                 new Player(3, "Player2"),
@@ -58,12 +58,13 @@ public class GameControllerIT {
         Scoreboard scoreboard = new Scoreboard();
         scoreboard.setScoreboard(players);
 
-        // Mocking the behavior of the game service to return the mocked scoreboard data
+        // When
         when(gameService.getScoreboard()).thenReturn(players);
 
-        // Performing the GET request to retrieve the scoreboard
         mockMvc.perform(MockMvcRequestBuilders.get("/api/scoreboard")
                         .accept(MediaType.APPLICATION_JSON))
+
+                //Then
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }

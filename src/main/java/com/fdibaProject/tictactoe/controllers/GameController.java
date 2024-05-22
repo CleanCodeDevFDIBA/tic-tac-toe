@@ -27,6 +27,11 @@ public class GameController {
         String player1 = game.getPlayer1();
         String player2 = game.getPlayer2();
         String winner = game.getWinner();
+
+        if (player1 == null || player2 == null){
+            return ResponseEntity.badRequest().build();
+        }
+
         System.out.println("Players: " + player1+ " " + player2 +"\nWinner: " + winner);
         game = gameService.createGame(player1, player2, winner);
         System.out.println("Game ID: " + game.getId());
