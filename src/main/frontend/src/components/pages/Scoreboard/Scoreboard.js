@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'; // Assuming you're using axios for HTTP requests
+import axios from 'axios';
 import './Scoreboard.css';
 
 const Scoreboard = () => {
@@ -22,7 +22,7 @@ const Scoreboard = () => {
     };
 
     fetchPlayers();
-  }, [currentPage]); // Re-fetch data on page change
+  }, [currentPage]);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -51,7 +51,7 @@ const Scoreboard = () => {
 
 
   const renderPagination = () => {
-    if (pageCount <= 1) return null; // No pagination needed for single page
+    if (pageCount <= 1) return null;
 
     const pageButtons = [];
     for (let i = 1; i <= pageCount; i++) {
