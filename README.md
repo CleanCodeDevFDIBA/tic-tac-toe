@@ -35,9 +35,6 @@ This project is a web-based Tic-Tac-Toe game built with React for the front end 
 - **Maven**: Apache Maven is required for building and managing the Spring Boot application.
     - Download and install from: [Maven Official Website](https://maven.apache.org/download.cgi)
 
-- **PostgreSQL**: Set up a PostgreSQL database.
-    - Download and install from: [PostgreSQL Official Website](https://www.postgresql.org/download/)
-
 - **IntelliJ IDEA**: Recommended IDE for developing the application.
     - Download and install from: [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
 
