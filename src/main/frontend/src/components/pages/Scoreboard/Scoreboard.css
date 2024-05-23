@@ -1,7 +1,6 @@
 .scoreboard-page {
     text-align: center;
     color: #703a2e;
-    margin-top: 50px;
 }
 
 .scoreboard-title {
@@ -25,11 +24,13 @@ th {
 }
 
 h2 {
+    margin-top: 0px;
     margin-bottom: 20px;
 }
 
 .homeButton{
-    margin-top: 250px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     text-align: center;
 }
 .homeButton a button{
@@ -45,4 +46,39 @@ h2 {
 .homeButton a button:hover {
     background-color: #804336;
     color: #f5b098;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    gap: 1em;
+}
+
+.pagination-btn,
+.pagination button {
+    background-color: #804336;
+    color: #f5b098;
+    font-weight: bold;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.pagination button[disabled] {
+    background-color: #f5b098;
+    color: #693328;
+    cursor: not-allowed;
+}
+
+.pagination .active {
+    background-color: #804336;
+}
+
+.pagination-btn:hover,
+.pagination button:hover {
+    background-color: #f5b098;
+    color: #804336;
 }
