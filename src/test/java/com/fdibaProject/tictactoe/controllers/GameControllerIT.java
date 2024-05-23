@@ -46,7 +46,6 @@ public class GameControllerIT {
                 .andExpect(MockMvcResultMatchers.status().isCreated());
     }
 
-
     @Test
     public void testGetScoreboard() throws Exception {
         // Given

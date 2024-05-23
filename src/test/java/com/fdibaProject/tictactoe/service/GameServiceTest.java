@@ -27,7 +27,6 @@ public class GameServiceTest {
     @InjectMocks
     private GameService gameService;
 
-
     @Test
     void when_getAllGamesIsEmpty_shouldReturnEmptyList() {
         // Given
@@ -57,8 +56,6 @@ public class GameServiceTest {
         Assertions.assertFalse(foundGames.isEmpty());
         assertEquals(gameList.size(), foundGames.size());
     }
-
-
 
     @Test
     void when_createGameWithValidData_shouldSaveGame() {
@@ -229,7 +226,5 @@ public class GameServiceTest {
         verify(gameRepository, times(1)).save(null);
         assertNull(savedGame, "Expected the saved game to be null when saving a null game");
     }
-
-
 
 }

@@ -15,6 +15,7 @@ public class GameFactory {
         game.setWinner("Player1");
 
         return game;
+
     }
 
 }
