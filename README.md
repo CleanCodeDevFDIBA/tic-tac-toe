@@ -23,13 +23,8 @@ This project is a web-based Tic-Tac-Toe game built with React for the front end 
     - PostgreSQL (database)
     - RESTful API
 
-## Getting Started
 
-### Prerequisites
-
-## Getting Started
-
-### Prerequisites
+## Prerequisites
 
 - **Node.js and npm**: You need to have Node.js and npm installed on your machine.
     - Download and install from: [Node.js Official Website](https://nodejs.org/)
@@ -47,7 +42,7 @@ This project is a web-based Tic-Tac-Toe game built with React for the front end 
     - Download and install from: [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
 
 
-### Installation
+## Installation
 
 1. **Clone the repository**:
    ```bash
