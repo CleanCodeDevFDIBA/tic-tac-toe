@@ -107,11 +107,9 @@ public class GameServiceTest {
         winsPerPlayerMap.put("Player2", 5);
         winsPerPlayerMap.put("Player3", 1);
 
-        // Accessing the sortScoreboard method via reflection
         Method method = GameService.class.getDeclaredMethod("sortScoreboard", Map.class);
-        method.setAccessible(true); // Allowing access to private method
+        method.setAccessible(true);
 
-        // Creating an instance of GameService to invoke the private method
         GameService gameService = new GameService();
 
         // When
@@ -144,8 +142,6 @@ public class GameServiceTest {
         // Then
         assertEquals(3, scoreboard.size());
 
-        // Assuming sortScoreboard and addRankings methods are working correctly
-        // We can verify that the scoreboard is sorted correctly with rankings
         assertEquals("Player1", scoreboard.get(0).name);
         assertEquals(2, scoreboard.get(0).wins);
         assertEquals(1, scoreboard.get(0).ranking);
@@ -159,7 +155,6 @@ public class GameServiceTest {
         assertEquals(3, scoreboard.get(2).ranking);
     }
 
-    // Helper method to mock Game instances
     private Game mockGame(String player1, String player2, String winner) {
         Game game = mock(Game.class);
         when(game.getPlayer1()).thenReturn(player1);
